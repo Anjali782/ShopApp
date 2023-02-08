@@ -15,6 +15,7 @@ import './screens/user_products_screen.dart';
 import './screens/edit_product_screen.dart';
 import './helpers/custom_route.dart';
 
+//hello
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -56,13 +57,14 @@ class MyApp extends StatelessWidget {
         builder: (ctx, auth, _) => MaterialApp(
             title: 'MyShop',
             theme: ThemeData(
-              primarySwatch: Colors.teal,
-              accentColor: Colors.deepOrange,
-              fontFamily: 'Lato',
-              pageTransitionsTheme: PageTransitionsTheme(builders: {
-                TargetPlatform.android:CustomPageTransitionBuilder(),
-              },)
-            ),
+                primarySwatch: Colors.teal,
+                accentColor: Colors.deepOrange,
+                fontFamily: 'Lato',
+                pageTransitionsTheme: PageTransitionsTheme(
+                  builders: {
+                    TargetPlatform.android: CustomPageTransitionBuilder(),
+                  },
+                )),
             home: auth.isAuth //if authenticated then productoverview screen
                 ? ProductsOverviewScreen() //if not then futurebuilder try to auto login
                 : FutureBuilder(
