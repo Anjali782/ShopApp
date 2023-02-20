@@ -18,9 +18,10 @@ class ProductItem extends StatelessWidget {
     final product = Provider.of<Product>(context, listen: false);
     final cart = Provider.of<Cart>(context, listen: false);
     final authData = Provider.of<Auth>(context, listen: false);
-    return ClipRRect(
+    return ClipRRect(//cliprrect forces the child to be in some shape
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
+        //with this allows us to add on tap listner
         child: GestureDetector(
             onTap: () {
               Navigator.of(context).pushNamed(
@@ -69,7 +70,7 @@ class ProductItem extends StatelessWidget {
               cart.addItem(product.id, product.price, product.title);
               //if we rapidly add another item then hide prev appbar if it is showing till now
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
-              //we want to show some info while pr3ess on cart icon
+              //we want to show some info while press on cart icon , vo jo neeche ataa hai black patti si whi h snackbar
               //with .of method we stablish a connection to nearest scaffold which is scaffold of overview screen
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(

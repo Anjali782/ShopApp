@@ -6,6 +6,7 @@ import '../models/http_exception.dart';
 
 import './product.dart';
 
+//to use provider, to listen change
 class Products with ChangeNotifier {
   List<Product> _items = [
 //    ),
@@ -114,6 +115,7 @@ class Products with ChangeNotifier {
 
   Future<void> addProduct(Product product) async {
     //now we are adding are project and storing data on the database with the help of firebase web server
+    //link ke aage products add kia h which is used to make a name of folder will show on firebase
     final url =
         'https://flutter-update-90ea9-default-rtdb.firebaseio.com/products.json?auth=$authToken';
     //we can't pass our products but we can pass a map it know how to convert map

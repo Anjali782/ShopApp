@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/cart.dart';
 
 class CartItem extends StatelessWidget {
@@ -32,7 +31,7 @@ class CartItem extends StatelessWidget {
             size: 40,
           ),
           alignment: Alignment.centerRight,
-          padding: EdgeInsets.only(right: 20),
+          padding: const EdgeInsets.only(right: 20),
           margin: const EdgeInsets.symmetric(
             horizontal: 15,
             vertical: 4,
@@ -46,19 +45,19 @@ class CartItem extends StatelessWidget {
         return showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text('Are you sure ?'),
-            content: Text('Do you want to remove the item from the cart ?'),
+            title: const Text('Are you sure ?'),
+            content: const Text('Do you want to remove the item from the cart ?'),
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.of(ctx).pop(false);
                   },
-                  child: Text('No')),
+                  child: const Text('No')),
               TextButton(
                   onPressed: () {
                     Navigator.of(ctx).pop(true);
                   },
-                  child: Text('Yes'))
+                  child: const Text('Yes'))
             ],
           ),
         );

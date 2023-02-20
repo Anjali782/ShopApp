@@ -30,6 +30,7 @@ class _OrderItemState extends State<OrderItem> {
             ListTile(
               title: Text('\$${widget.order.amount}'),
               subtitle: Text(
+                //iss date ke liye will bring intl package in yml and here import
                 DateFormat('dd/MM/yyyy hh:mm').format(widget.order.dateTime),
               ),
               trailing: IconButton(

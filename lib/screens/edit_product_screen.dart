@@ -14,6 +14,7 @@ class EditProductScreen extends StatefulWidget {
 }
 
 class _EditProductScreenState extends State<EditProductScreen> {
+  //focus node means click krne pr bar wha aa jae so that we can type there
   final _priceFocusNode = FocusNode();
   final _descriptionFocusNode = FocusNode();
   final _imageUrlController = TextEditingController();
@@ -68,6 +69,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     super.didChangeDependencies();
   }
 
+//also to avoid memory leak if we are working with our focus node then we have to dispose them
   @override
   void dispose() {
     _imageUrlFocusNode.removeListener(_updateImageUrl);

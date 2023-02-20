@@ -14,6 +14,7 @@ class CartItem {
   });
 }
 
+//why map ? , to map every item to the id it belong to
 class Cart with ChangeNotifier {
   Map<String, CartItem> _items = {};
   Map<String, CartItem> get items {

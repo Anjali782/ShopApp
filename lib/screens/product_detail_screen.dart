@@ -12,6 +12,7 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //this will give me the id beacuse i have forwarded the id as argument from product_item.dart
     final productId =
         ModalRoute.of(context).settings.arguments as String; // is the id!
     final loadedProduct = Provider.of<Products>(

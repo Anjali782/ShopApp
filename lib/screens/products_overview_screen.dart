@@ -52,6 +52,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         title: const Text('MyShop'),
         actions: <Widget>[
           PopupMenuButton(
+            //FilterOptions upper hai enum just like to provide some identity to the options
             onSelected: (FilterOPtions selectedValue) {
               setState(() {
                 if (selectedValue == FilterOPtions.Favourite) {
@@ -93,14 +94,10 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         ],
       ),
       drawer: AppDrawer(),
-      
       body: isLoading
           ? Center(
-            
               child: CircularProgressIndicator(),
-              
             )
-            
           : ProductsGrid(_showOnlyFavourites),
     );
   }

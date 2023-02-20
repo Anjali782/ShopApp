@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//to register provider
 import 'package:provider/provider.dart';
 
 import './screens/splash_screen.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        //whenever the class updates only the child which is listening will rebuilt
         ChangeNotifierProvider.value(
           value: Auth(),
         ),
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
             auth.userId,
           ),
         ),
+        //when widget is not depent context use .value
+        //this to show how many items int cart , that red one value on cart icon on home page
         ChangeNotifierProvider.value(
           value: Cart(),
         ),
@@ -51,18 +55,19 @@ class MyApp extends StatelessWidget {
         ),
       ],
       //using consumer because we want if user already authentication on opening app simply show shop screen or switch to authscreen
-      //so foe rebuilting the material apop
+      //so for rebuilting the material apop
       child: Consumer<Auth>(
         builder: (ctx, auth, _) => MaterialApp(
             title: 'MyShop',
             theme: ThemeData(
-              primarySwatch: Colors.teal,
-              accentColor: Colors.deepOrange,
-              fontFamily: 'Lato',
-              pageTransitionsTheme: PageTransitionsTheme(builders: {
-                TargetPlatform.android:CustomPageTransitionBuilder(),
-              },)
-            ),
+                primarySwatch: Colors.teal,
+                accentColor: Colors.deepOrange,
+                fontFamily: 'Lato',
+                pageTransitionsTheme: PageTransitionsTheme(
+                  builders: {
+                    TargetPlatform.android: CustomPageTransitionBuilder(),
+                  },
+                )),
             home: auth.isAuth //if authenticated then productoverview screen
                 ? ProductsOverviewScreen() //if not then futurebuilder try to auto login
                 : FutureBuilder(
@@ -75,6 +80,7 @@ class MyApp extends StatelessWidget {
                             : AuthScreen(),
                   ),
             routes: {
+              //kisi bhi screen ko const routname krke naam do uske baad yha inform kro then use it
               ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
               CartScreen.routeName: (ctx) => CartScreen(),
               OrdersScreen.routeName: (ctx) => OrdersScreen(),
